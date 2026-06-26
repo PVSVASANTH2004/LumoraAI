@@ -1,0 +1,53 @@
+# ── Python / Backend ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-log.txt
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ── Secrets & credentials (NEVER commit these) ───────────────────
+backend/firebase-service-account.json
+backend/.env
+*.pem
+*.key
+
+# ── Backend runtime data ─────────────────────────────────────────
+backend/chroma_data/
+backend/dev_data.json
+backend/logs/
+backend/*.log
+
+# ── Node / Frontend ──────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.local
+
+# ── OS ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE / tooling ────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.claude/
+
+# ── Vite cache ───────────────────────────────────────────────────
+.vite/
+frontend/.vite/

@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ── Light mode (default) ──────────────────────────────────── */
+  :root, .light {
+    --background: 265 60% 99%;
+    --foreground: 265 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 265 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 265 47% 11%;
+    --primary: 264 41% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 17% 89%;
+    --secondary-foreground: 265 24% 28%;
+    --muted: 265 30% 93%;
+    --muted-foreground: 265 16% 46%;
+    --accent: 265 30% 93%;
+    --accent-foreground: 265 47% 11%;
+    --destructive: 4 76% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 265 15% 84%;
+    --input: 265 15% 88%;
+    --ring: 264 41% 47%;
+    --radius: 0.5rem;
+
+    /* Surface RGB triplets (space-separated for Tailwind opacity support) */
+    --surface-dim: 237 232 245;
+    --surface-lowest: 243 240 251;
+    --surface-low: 248 247 255;
+    --surface-default: 250 249 255;
+    --surface-container: 255 255 255;
+    --surface-high: 237 232 245;
+    --surface-highest: 229 223 240;
+    --surface-bright: 255 255 255;
+
+    /* Lumora brand colors (RGB triplets) */
+    --lumora-primary: 103 80 164;
+    --lumora-secondary: 98 91 113;
+    --lumora-tertiary: 125 82 96;
+    --lumora-error: 179 38 30;
+    --lumora-outline: 121 116 126;
+    --lumora-outline-variant: 202 196 208;
+
+    /* Component-level semantic vars */
+    --sidebar-bg: rgba(248, 247, 255, 0.95);
+    --sidebar-border: rgba(103, 80, 164, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(0, 0, 0, 0.07);
+    --glass-card-bg: rgba(255, 255, 255, 0.88);
+    --dialog-bg: rgba(250, 249, 255, 0.98);
+    --overlay-subtle: rgba(0, 0, 0, 0.03);
+    --overlay-low: rgba(0, 0, 0, 0.05);
+    --overlay-medium: rgba(0, 0, 0, 0.08);
+    --border-subtle: rgba(0, 0, 0, 0.07);
+    --border-medium: rgba(0, 0, 0, 0.12);
+    --scrollbar-thumb: rgba(103, 80, 164, 0.2);
+  }
+
+  /* ── Dark mode ─────────────────────────────────────────────── */
+  .dark {
+    --background: 240 6% 10%;
+    --foreground: 270 14% 91%;
+    --card: 240 5% 13%;
+    --card-foreground: 270 14% 91%;
+    --popover: 240 5% 13%;
+    --popover-foreground: 270 14% 91%;
+    --primary: 265 100% 87%;
+    --primary-foreground: 265 74% 28%;
+    --secondary: 265 27% 82%;
+    --secondary-foreground: 265 22% 24%;
+    --muted: 240 5% 17%;
+    --muted-foreground: 265 14% 75%;
+    --accent: 240 5% 17%;
+    --accent-foreground: 270 14% 91%;
+    --destructive: 4 100% 84%;
+    --destructive-foreground: 4 100% 21%;
+    --border: 255 6% 30%;
+    --input: 255 6% 16%;
+    --ring: 265 100% 87%;
+
+    --surface-dim: 20 18 24;
+    --surface-lowest: 15 13 19;
+    --surface-low: 29 27 32;
+    --surface-default: 20 18 24;
+    --surface-container: 33 31 36;
+    --surface-high: 43 41 47;
+    --surface-highest: 54 52 58;
+    --surface-bright: 59 56 62;
+
+    --lumora-primary: 207 188 255;
+    --lumora-secondary: 205 192 233;
+    --lumora-tertiary: 231 195 101;
+    --lumora-error: 255 180 171;
+    --lumora-outline: 148 142 156;
+    --lumora-outline-variant: 73 69 81;
+
+    --sidebar-bg: rgba(12, 10, 16, 0.92);
+    --sidebar-border: rgba(207, 188, 255, 0.07);
+    --glass-bg: rgba(29, 27, 32, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-card-bg: rgba(33, 31, 36, 0.8);
+    --dialog-bg: rgba(16, 14, 20, 0.97);
+    --overlay-subtle: rgba(255, 255, 255, 0.02);
+    --overlay-low: rgba(255, 255, 255, 0.04);
+    --overlay-medium: rgba(255, 255, 255, 0.08);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-medium: rgba(255, 255, 255, 0.12);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { opacity: 0.8; }
+
+  /* Selection */
+  .dark ::selection { background: rgba(207, 188, 255, 0.2); color: #e6e0e9; }
+  .light ::selection { background: rgba(103, 80, 164, 0.15); color: #1a0a2e; }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    background: var(--glass-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card:hover {
+    border-color: var(--border-medium);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, rgb(var(--lumora-primary)), #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgb(var(--lumora-primary) / 0.3), rgba(147, 197, 253, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .light .shimmer-bg {
+    background: linear-gradient(90deg, #f3f0fb 25%, #ede8f5 50%, #f3f0fb 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  .dark .shimmer-bg {
+    background: linear-gradient(90deg, #18181b 25%, #27272a 50%, #18181b 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ── Reduced motion ──────────────────────────────────────────── */
+  [data-reduced-motion="true"] *,
+  [data-reduced-motion="true"] *::before,
+  [data-reduced-motion="true"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* ── Compact mode ────────────────────────────────────────────── */
+  [data-compact="true"] {
+    font-size: 13px;
+  }
+  [data-compact="true"] .py-4 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+  [data-compact="true"] .py-3 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+  [data-compact="true"] .py-6 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+  [data-compact="true"] .py-8 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+  [data-compact="true"] .gap-6 { gap: 0.75rem !important; }
+  [data-compact="true"] .gap-8 { gap: 1rem !important; }
+  [data-compact="true"] .mb-8 { margin-bottom: 1rem !important; }
+  [data-compact="true"] .space-y-5 > * + * { margin-top: 0.75rem !important; }
+}
