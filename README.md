@@ -2,8 +2,6 @@
 
 A production-grade AI-powered document assistant built with a full RAG (Retrieval-Augmented Generation) pipeline. Upload PDFs, ask questions, and get accurate answers with source citations — all backed by semantic search and streaming AI responses.
 
-Built as the Round-2 submission for the **IR INFOTECH Full Stack Developer Internship**.
-
 ---
 
 ## Tech Stack
